@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import Script from "next/script";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -29,6 +30,18 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
+        <Script
+          src="https://aframe.io/releases/1.3.0/aframe.min.js"
+          strategy="beforeInteractive"
+        />
+        <Script
+          src="https://raw.githack.com/AR-js-org/AR.js/master/three.js/build/ar-threex-location-only.js"
+          strategy="beforeInteractive"
+        />
+        <Script
+          src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"
+          strategy="beforeInteractive"
+        />
       </body>
     </html>
   );
